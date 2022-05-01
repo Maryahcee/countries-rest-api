@@ -1,9 +1,14 @@
-<script setup>
-import TheWelcome from '@/components/TheWelcome.vue'
+<script>
+import CountryCard from '@/components/CountryCard.vue'
+export default {
+  components: {
+    CountryCard,
+  }
+}
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <CountryCard />
   </main>
 </template>
