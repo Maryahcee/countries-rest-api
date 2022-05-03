@@ -1,5 +1,15 @@
-<script>
+<script setup>
+import {useStore} from 'vuex'
+import { computed, onMounted } from "@vue/runtime-core";
 
+const store = useStore()
+
+const gettersTheme = computed(() => {
+  return store.getters.getTheme
+})
+onMounted (() => {
+  return store.dispatch("fetchTheme")
+})
 </script>
 
 <template>
@@ -8,7 +18,8 @@
       <h1 class="m-5 font-bold text-lg float-left">Where in the World?</h1>
       <div class="flex m-5 mx-auto mr-10">
           <font-awesome-icon class="mr-2  h-6" icon="moon" />
-        <h3>Dark Mode</h3>
+        <button @click="toggleTheme"
+        class="dark:text-red-400">Dark Mode</button>
       </div>
     </div>
   </nav>
